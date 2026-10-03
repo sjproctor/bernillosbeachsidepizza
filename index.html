@@ -42,18 +42,17 @@
     <link rel="canonical" href="https://bernillosbeachsidepizza.com/" />
 
     <link rel="stylesheet" href="styles.css" />
-    <!-- Pizza emoji favicon: inline SVG for modern browsers, PNG fallbacks for the rest -->
+    <!-- Pizza emoji icons. favicon.ico and apple-touch-icon.png stay at the site
+         root because browsers and phones request those paths even without a tag -->
+    <link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48" />
     <link
       rel="icon"
-      type="image/svg+xml"
-      href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Ctext y=%27.9em%27 font-size=%2790%27%3E%F0%9F%8D%95%3C/text%3E%3C/svg%3E"
+      type="image/png"
+      sizes="192x192"
+      href="/images/icon-192.png"
     />
-    <link rel="icon" type="image/png" sizes="64x64" href="images/favicon.png" />
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="images/apple-touch-icon.png"
-    />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
 
     <script type="application/ld+json">
       {

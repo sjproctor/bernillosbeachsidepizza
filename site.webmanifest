@@ -1,0 +1,22 @@
+{
+  "name": "Bernillo's Beachside Pizza",
+  "short_name": "Bernillo's",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#8c1c1c",
+  "theme_color": "#8c1c1c",
+  "icons": [
+    {
+      "src": "/images/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/images/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
