@@ -1,15 +1,15 @@
 # Bernillo's Beachside Pizza
 
-Single-page website for Bernillo's Beachside Pizza, an old-school pizza parlor in downtown Fort Bragg, CA. Static HTML and CSS, no build step. The only JavaScript is a short inline script that adds keyboard support to the photo lightboxes.
+Single-page website for Bernillo's Beachside Pizza, an old-school pizza parlor in downtown Fort Bragg, CA. Static HTML and CSS, no build step. The only JavaScript is two short inline scripts: one adds keyboard and history support to the photo lightboxes, the other highlights today in the hours table.
 
 ## Status
 
 The site is content-complete. Everything below is live in `index.html`:
 
 - **Hero** — heading, intro paragraphs, an eight-item checklist (dine in, takeout, etc.), and three pizza photos with name badges plus a hint that they open a gallery. Text sits left and photos right on wide screens; photos drop below the text on phones. The hero photos are served as WebP with JPEG fallback at 400, 800, and 1600px via `srcset`.
-- **Photo lightboxes** — clicking a hero photo opens a full-screen gallery of all pizza photos; clicking a pizza name in the menu table opens a gallery of just that pizza. Swipe or use the arrow buttons to move between photos, tap outside or the × to close. Built with `:target`, `:has()`, and CSS scroll-snap; a `@supports not selector(:has(*))` block in `styles.css` gives browsers without `:has()` a one-photo-at-a-time overlay so the galleries still open there. An inline script at the end of `<body>` adds keyboard support: focus moves into the open lightbox, Tab stays inside it, Escape closes, the arrow keys step between photos, and focus returns to the opening link.
+- **Photo lightboxes** — clicking a hero photo opens a full-screen gallery of all pizza photos; clicking a pizza name in the menu table opens a gallery of just that pizza. Swipe or use the arrow buttons to move between photos, tap outside or the × to close. Built with `:target`, `:has()`, and CSS scroll-snap; a `@supports not selector(:has(*))` block in `styles.css` gives browsers without `:has()` a one-photo-at-a-time overlay so the galleries still open there. An inline script at the end of `<body>` adds keyboard support: focus moves into the open lightbox, Tab stays inside it, Escape closes, the arrow keys step between photos, and focus returns to the opening link. Moving between photos replaces the browser history entry rather than adding one, and closing goes back to the page, so one press of Back leaves the gallery.
 - **Pizzas** — price table by size (pizza names link to photo galleries, except Meatzilla which has no photo yet), crust and sauce options, extra toppings list, ranch dressing, beer note, and an Ordering line with a tap-to-call number.
-- **Hours & Location** — hours table, address, phone, a Get directions button, and an embedded Google Map.
+- **Hours & Location** — hours table, address, phone, a Get directions button, and an embedded Google Map. An inline script highlights today's row (in Pacific time) and adds "Open now", "Opens today at …", or "Closed for today"; it reads the hours from the JSON-LD block, so there is nothing extra to update when hours change.
 - **About** — short history and a payment note. Facebook and Instagram links with inline SVG icons sit in the nav (icons only) and the footer.
 - **SEO** — title, meta description, canonical link, Open Graph tags with a preview image, `Restaurant` JSON-LD (address, hours, phone, price range, coordinates, social profiles), pizza-emoji favicon set (`favicon.ico`, Apple touch icon, and web manifest icons), `robots.txt`, and `sitemap.xml`.
 - **Copyright year** — a GitHub Action updates the footer year every January 1st.
