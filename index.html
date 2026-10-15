@@ -1664,9 +1664,9 @@
         <div class="wrap">
           <h2>About Bernillo's Beachside Pizza</h2>
           <p>
-            Bernillo's is a locally owned, serving the Fort Bragg community
-            since 1980. The original dough and sauce recipes for our classic
-            pizzas are still used today.
+            Bernillo's has been locally-owned and serving classic pizzas in the
+            Fort Bragg community since 1980. The original dough and sauce
+            recipes are still used today.
           </p>
           <p>
             Each pizza is made fresh to order using local ingredients from the
@@ -1859,7 +1859,9 @@
 
         var hours = {};
         try {
-          var json = document.querySelector('script[type="application/ld+json"]');
+          var json = document.querySelector(
+            'script[type="application/ld+json"]',
+          );
           var data = JSON.parse(json.textContent);
           data.openingHoursSpecification.forEach(function (spec) {
             hours[spec.dayOfWeek] = { opens: spec.opens, closes: spec.closes };
