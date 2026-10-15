@@ -415,12 +415,44 @@ section[id] {
   font-variant-numeric: tabular-nums;
 }
 
-/* Pizza names that open a photo gallery for that pizza */
+/* Pizza names that open a photo gallery for that pizza. The thumbnail and
+   name are one link so the whole cell is a tap target. */
 .menu-photo-link {
   color: var(--red);
   font-weight: 600;
   text-decoration-thickness: 1px;
   text-underline-offset: 0.15em;
+}
+
+.menu-photo-link,
+.menu-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.menu-photo-link picture {
+  flex: none;
+}
+
+.menu-thumb {
+  display: block;
+  flex: none;
+  width: 3rem;
+  height: 3rem;
+  object-fit: cover;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+}
+
+.menu-photo-link:hover .menu-thumb,
+.menu-photo-link:focus-visible .menu-thumb {
+  border-color: var(--red);
+}
+
+/* Keeps names aligned for a pizza with no photo yet */
+.menu-thumb-empty {
+  background: var(--tint);
 }
 
 .menu-table th[scope="col"]:not(:first-child) {
@@ -842,6 +874,11 @@ address {
   .menu-table th,
   .menu-table td {
     padding: 0.5rem 0.75rem;
+  }
+
+  .menu-thumb {
+    width: 4rem;
+    height: 4rem;
   }
 
   :root {
