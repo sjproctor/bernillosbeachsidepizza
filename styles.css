@@ -343,6 +343,20 @@ section[id] {
   font-weight: normal;
 }
 
+/* Today's row, marked by the inline script in index.html */
+.hours-table .is-today th,
+.hours-table .is-today td {
+  background: var(--tint);
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.hours-status {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--red);
+}
+
 .menu-heading {
   font-family: var(--font-heading);
   font-size: 1.2rem;

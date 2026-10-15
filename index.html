@@ -1397,7 +1397,7 @@
               <p>
                 <a
                   class="button"
-                  href="https://www.google.com/maps/place/Bernillo's+Pizza/@39.444096,-123.8066985,17z/data=!4m14!1m7!3m6!1s0x8080351c4e072e29:0xeccb110cae959ae7!2sBernillo's+Pizza!8m2!3d39.4440919!4d-123.8041182!16s%2Fg%2F11kqc1y_v5!3m5!1s0x8080351c4e072e29:0xeccb110cae959ae7!8m2!3d39.4440919!4d-123.8041182!16s%2Fg%2F11kqc1y_v5?entry=ttu&amp;g_ep=EgoyMDI2MDkyMy4wIKXMDSoASAFQAw%3D%3D"
+                  href="https://www.google.com/maps/dir/?api=1&amp;destination=Bernillo%27s+Pizza,+220+E+Redwood+Ave,+Fort+Bragg,+CA+95437"
                   >Get directions</a
                 >
               </p>
@@ -1474,14 +1474,21 @@
       </ul>
     </footer>
     <script>
-      // Keyboard support for the CSS-only lightboxes. Opening and closing is
-      // still done by the URL fragment; this only manages focus and keys:
-      // focus moves to the open slide, Tab stays inside the lightbox, Escape
-      // closes, the arrow keys step between photos, and focus returns to the
-      // link that opened the lightbox when it closes.
+      // Keyboard and history support for the CSS-only lightboxes. Opening and
+      // closing is still done by the URL fragment; this only manages focus,
+      // keys, and history: focus moves to the open slide, Tab stays inside the
+      // lightbox, Escape closes, the arrow keys step between photos, and focus
+      // returns to the link that opened the lightbox when it closes. Moving
+      // between photos replaces the history entry instead of adding one, and
+      // closing goes back to the entry before the lightbox opened, so the
+      // browser's Back button leaves the page in one press, not one per photo.
       (function () {
         var opener = null;
         var openBox = null;
+        // True while the open lightbox was opened by a click on this page, so
+        // there is a history entry for the page underneath it to go back to.
+        // False when the page was loaded straight onto a photo URL.
+        var openedHere = false;
 
         // The backdrop is an invisible hit area for mouse and touch; keyboard
         // users close with the × button or Escape instead.
@@ -1497,11 +1504,36 @@
         // not enough.
         document.addEventListener("click", function (event) {
           var link = event.target.closest('a[href^="#"]');
-          if (link && !link.closest(".lightbox")) opener = link;
+          if (!link) return;
+
+          if (!link.closest(".lightbox")) {
+            opener = link;
+            var target = document.getElementById(link.hash.slice(1));
+            if (target && target.classList.contains("lightbox-slide")) {
+              openedHere = true;
+            }
+            return;
+          }
+
+          // Arrows, ×, and backdrop inside an open lightbox
+          event.preventDefault();
+          if (link.getAttribute("href") === "#!") {
+            close();
+          } else {
+            window.location.replace(link.hash);
+          }
         });
 
         function currentSlide() {
           return document.querySelector(".lightbox-slide:target");
+        }
+
+        function close() {
+          if (openedHere) {
+            history.back();
+          } else {
+            window.location.replace("#!");
+          }
         }
 
         function sync() {
@@ -1509,10 +1541,13 @@
           if (slide) {
             openBox = slide.closest(".lightbox");
             slide.focus();
-          } else if (openBox) {
-            openBox = null;
-            if (opener) opener.focus();
-            opener = null;
+          } else {
+            openedHere = false;
+            if (openBox) {
+              openBox = null;
+              if (opener) opener.focus();
+              opener = null;
+            }
           }
         }
 
@@ -1523,7 +1558,7 @@
 
           if (event.key === "Escape") {
             event.preventDefault();
-            window.location.hash = "!";
+            close();
             return;
           }
 
@@ -1557,6 +1592,89 @@
 
         window.addEventListener("hashchange", sync);
         sync();
+      })();
+
+      // Highlights today's row in the hours table and adds an open/closed
+      // note, using the restaurant's time zone rather than the visitor's.
+      // The hours come from the JSON-LD block in <head>, so they are only
+      // maintained there and in the table. Without this script the table
+      // reads exactly as before.
+      (function () {
+        var rows = {};
+        var rowList = document.querySelectorAll(".hours-table tbody tr");
+        rowList.forEach(function (row) {
+          rows[row.querySelector("th").textContent.trim()] = row;
+        });
+
+        var hours = {};
+        try {
+          var json = document.querySelector('script[type="application/ld+json"]');
+          var data = JSON.parse(json.textContent);
+          data.openingHoursSpecification.forEach(function (spec) {
+            hours[spec.dayOfWeek] = { opens: spec.opens, closes: spec.closes };
+          });
+        } catch (error) {
+          return;
+        }
+
+        function minutes(hhmm) {
+          var parts = hhmm.split(":");
+          return Number(parts[0]) * 60 + Number(parts[1]);
+        }
+
+        function clock(hhmm) {
+          var total = minutes(hhmm);
+          var h = Math.floor(total / 60);
+          var m = total % 60;
+          var suffix = h < 12 ? " AM" : " PM";
+          return ((h + 11) % 12) + 1 + ":" + (m < 10 ? "0" : "") + m + suffix;
+        }
+
+        function update() {
+          var parts = {};
+          new Intl.DateTimeFormat("en-US", {
+            timeZone: "America/Los_Angeles",
+            weekday: "long",
+            hour: "2-digit",
+            minute: "2-digit",
+            hourCycle: "h23",
+          })
+            .formatToParts(new Date())
+            .forEach(function (part) {
+              parts[part.type] = part.value;
+            });
+
+          var row = rows[parts.weekday];
+          if (!row) return;
+
+          var stale = document.querySelectorAll(".hours-table .is-today");
+          stale.forEach(function (old) {
+            old.classList.remove("is-today");
+            old.querySelector(".hours-status").remove();
+          });
+
+          var today = hours[parts.weekday];
+          var now = Number(parts.hour) * 60 + Number(parts.minute);
+          var status;
+          if (!today) {
+            status = "Today";
+          } else if (now < minutes(today.opens)) {
+            status = "Opens today at " + clock(today.opens);
+          } else if (now < minutes(today.closes)) {
+            status = "Open now";
+          } else {
+            status = "Closed for today";
+          }
+
+          var note = document.createElement("span");
+          note.className = "hours-status";
+          note.textContent = status;
+          row.classList.add("is-today");
+          row.querySelector("td").appendChild(note);
+        }
+
+        update();
+        setInterval(update, 60000);
       })();
     </script>
   </body>
