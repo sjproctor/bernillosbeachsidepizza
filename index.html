@@ -3,12 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>
-      Bernillo's Beachside Pizza | Classic Pizza in Fort Bragg, CA Since 1980
-    </title>
+    <title>Bernillo's Beachside Pizza | Classic Pizza in Fort Bragg, CA</title>
     <meta
       name="description"
-      content="Locally owned pizza parlor in downtown Fort Bragg since 1980. Original dough &amp; sauce, local produce,vegetarian options, draft beer. Dine in or call (707) 964-9314 for takeout."
+      content="Locally owned pizza parlor in downtown Fort Bragg since 1980. Local produce, vegetarian options, draft beer. Dine in or call (707) 964-9314 for takeout."
     />
     <meta name="geo.region" content="US-CA" />
     <meta name="geo.placename" content="Fort Bragg" />
@@ -22,7 +20,7 @@
     <meta property="og:title" content="Bernillo's Beachside Pizza" />
     <meta
       property="og:description"
-      content="Locally owned pizza parlor in downtown Fort Bragg since 1980. Original dough &amp; sauce, local produce, vegetarian options, draft beer. Dine in or call (707) 964-9314 for takeout."
+      content="Locally owned pizza parlor in downtown Fort Bragg since 1980. Local produce, vegetarian options, draft beer. Dine in or call (707) 964-9314 for takeout."
     />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="en_US" />
@@ -67,8 +65,8 @@
 
         --font-heading: Georgia, "Times New Roman", Times, serif;
         --font-body:
-          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial,
-          sans-serif;
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+          Arial, sans-serif;
 
         --wrap-max: 60rem;
         --menu-max: 36rem;
@@ -351,11 +349,6 @@
         font-size: 1.5rem;
       }
 
-      /* A second h2 within a section (e.g. Ordering under the menu) gets room above */
-      .section h2:not(:first-child) {
-        margin-top: 2.5rem;
-      }
-
       .section-lede {
         font-style: italic;
         margin-top: 0;
@@ -403,7 +396,7 @@
         color: var(--red);
       }
 
-      .menu-heading {
+      .subheading {
         font-family: var(--font-heading);
         font-size: 1.2rem;
         color: var(--red);
@@ -468,9 +461,6 @@
         font-weight: 600;
         text-decoration-thickness: 1px;
         text-underline-offset: 0.15em;
-      }
-
-      .menu-photo-link {
         display: flex;
         align-items: center;
         gap: 0.5rem;
@@ -552,16 +542,9 @@
         gap: 0 2rem;
       }
 
-      .photo-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 0.75rem;
-        margin-top: 1rem;
-      }
-
-      /* Hero strip: always three across, tiles shrink to fit on small screens */
-      /* Small screens: three equal tiles filling the container width */
+      /* Hero strip: three equal tiles across on small screens, shrinking to fit */
       .hero .photo-grid {
+        display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
         gap: 0.5rem;
         width: 100%;
@@ -933,7 +916,7 @@
       rel="icon"
       type="image/png"
       sizes="192x192"
-      href="/images/icon-192.png"
+      href="/images/icon-192-v2.png"
     />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
@@ -1833,7 +1816,10 @@
                   aria-label="Close enlarged photos"
                 ></a>
                 <picture>
-                  <source type="image/webp" srcset="images/veggie-add-sausage.webp" />
+                  <source
+                    type="image/webp"
+                    srcset="images/veggie-add-sausage.webp"
+                  />
                   <img
                     src="images/veggie-add-sausage.jpg"
                     width="1200"
@@ -1864,7 +1850,9 @@
                   >
                     <path d="M9 5l7 7-7 7" /></svg
                 ></a>
-                <figcaption id="photo-11-caption">Veggie Delight + Sausage</figcaption>
+                <figcaption id="photo-11-caption">
+                  Veggie Delight + Sausage
+                </figcaption>
               </figure>
               <figure
                 class="lightbox-slide"
@@ -1965,7 +1953,10 @@
                   aria-label="Close enlarged photos"
                 ></a>
                 <picture>
-                  <source type="image/webp" srcset="images/meatzilla-raw.webp" />
+                  <source
+                    type="image/webp"
+                    srcset="images/meatzilla-raw.webp"
+                  />
                   <img
                     src="images/meatzilla-raw.jpg"
                     width="1200"
@@ -1996,7 +1987,9 @@
                   >
                     <path d="M9 5l7 7-7 7" /></svg
                 ></a>
-                <figcaption id="photo-14-caption">Meatzilla (unbaked)</figcaption>
+                <figcaption id="photo-14-caption">
+                  Meatzilla (unbaked)
+                </figcaption>
               </figure>
               <figure
                 class="lightbox-slide"
@@ -2559,7 +2552,10 @@
                   aria-label="Close enlarged photos"
                 ></a>
                 <picture>
-                  <source type="image/webp" srcset="images/meatzilla-raw.webp" />
+                  <source
+                    type="image/webp"
+                    srcset="images/meatzilla-raw.webp"
+                  />
                   <img
                     src="images/meatzilla-raw.jpg"
                     width="1200"
@@ -2773,7 +2769,7 @@
 
           <div class="two-col menu-columns">
             <div>
-              <h3 class="menu-heading">Extra Toppings</h3>
+              <h3 class="subheading">Extra Toppings</h3>
               <p class="menu-note">
                 $2 for 12&Prime;
                 <span class="dot" aria-hidden="true">&bull;</span> $3 for
@@ -2800,13 +2796,13 @@
               </ul>
             </div>
             <div>
-              <h3 class="menu-heading">Ranch Dressing</h3>
+              <h3 class="subheading">Ranch Dressing</h3>
               <p class="menu-note">
                 $1.25 for 2oz
                 <span class="dot" aria-hidden="true">&bull;</span> $4 for 8oz
               </p>
 
-              <h3 class="menu-heading">Beer</h3>
+              <h3 class="subheading">Beer</h3>
               <p class="menu-note">
                 Six rotating drafts. See the board for what&rsquo;s pouring
                 today.
@@ -2894,7 +2890,7 @@
             farmers market and nearby suppliers whenever possible. Be sure to
             ask about seasonal veggie toppings.
           </p>
-          <h3 class="menu-heading">Payments</h3>
+          <h3 class="subheading">Payments</h3>
           <p>
             At Bernillo's Beachside Pizza cash is king! We also accept Apple Pay
             and all major credit cards.
@@ -3060,6 +3056,26 @@
             event.preventDefault();
             stops[next].focus();
           }
+        });
+
+        // Swiping scrolls the strip without changing the URL. Once a swipe
+        // settles, point the URL at the photo now on screen so the arrow keys,
+        // focus, and Back stay in step with what is shown. Arrow clicks have
+        // already set the URL, so for them this finds nothing to change.
+        document.querySelectorAll(".lightbox-strip").forEach(function (strip) {
+          var timer = null;
+          strip.addEventListener("scroll", function () {
+            clearTimeout(timer);
+            timer = setTimeout(function () {
+              var slide = currentSlide();
+              if (!slide || slide.parentNode !== strip) return;
+              var shown =
+                strip.children[Math.round(strip.scrollLeft / strip.clientWidth)];
+              if (shown && shown !== slide) {
+                window.location.replace("#" + shown.id);
+              }
+            }, 150);
+          });
         });
 
         window.addEventListener("hashchange", sync);
