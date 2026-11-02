@@ -470,8 +470,7 @@
         text-underline-offset: 0.15em;
       }
 
-      .menu-photo-link,
-      .menu-item {
+      .menu-photo-link {
         display: flex;
         align-items: center;
         gap: 0.5rem;
@@ -494,11 +493,6 @@
       .menu-photo-link:hover .menu-thumb,
       .menu-photo-link:focus-visible .menu-thumb {
         border-color: var(--red);
-      }
-
-      /* Keeps names aligned for a pizza with no photo yet */
-      .menu-thumb-empty {
-        background: var(--tint);
       }
 
       .menu-table th[scope="col"]:not(:first-child) {
@@ -1818,7 +1812,7 @@
                 <a
                   class="lightbox-arrow lightbox-next"
                   href="#photo-11"
-                  aria-label="Next photo: Seasonal Special"
+                  aria-label="Next photo: Veggie Delight + Sausage"
                   ><svg
                     viewBox="0 0 24 24"
                     aria-hidden="true"
@@ -1832,6 +1826,182 @@
                 class="lightbox-slide"
                 id="photo-11"
                 aria-labelledby="photo-11-caption"
+              >
+                <a
+                  class="lightbox-backdrop"
+                  href="#!"
+                  aria-label="Close enlarged photos"
+                ></a>
+                <picture>
+                  <source type="image/webp" srcset="images/veggie-add-sausage.webp" />
+                  <img
+                    src="images/veggie-add-sausage.jpg"
+                    width="1200"
+                    height="1600"
+                    alt="Close-up of a veggie pizza with sausage, spinach, yellow tomato, squash, and grated parmesan"
+                    loading="lazy"
+                  />
+                </picture>
+                <a
+                  class="lightbox-arrow lightbox-prev"
+                  href="#photo-10"
+                  aria-label="Previous photo: Veggie Delight"
+                  ><svg
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                    focusable="false"
+                  >
+                    <path d="M15 5l-7 7 7 7" /></svg
+                ></a>
+                <a
+                  class="lightbox-arrow lightbox-next"
+                  href="#photo-12"
+                  aria-label="Next photo: Meatzilla"
+                  ><svg
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                    focusable="false"
+                  >
+                    <path d="M9 5l7 7-7 7" /></svg
+                ></a>
+                <figcaption id="photo-11-caption">Veggie Delight + Sausage</figcaption>
+              </figure>
+              <figure
+                class="lightbox-slide"
+                id="photo-12"
+                aria-labelledby="photo-12-caption"
+              >
+                <a
+                  class="lightbox-backdrop"
+                  href="#!"
+                  aria-label="Close enlarged photos"
+                ></a>
+                <picture>
+                  <source type="image/webp" srcset="images/meatzilla-1.webp" />
+                  <img
+                    src="images/meatzilla-1.jpg"
+                    width="1450"
+                    height="1600"
+                    alt="A whole Meatzilla pizza topped with pepperoni, sausage, ham, and basil leaves, dusted with parmesan"
+                    loading="lazy"
+                  />
+                </picture>
+                <a
+                  class="lightbox-arrow lightbox-prev"
+                  href="#photo-11"
+                  aria-label="Previous photo: Veggie Delight + Sausage"
+                  ><svg
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                    focusable="false"
+                  >
+                    <path d="M15 5l-7 7 7 7" /></svg
+                ></a>
+                <a
+                  class="lightbox-arrow lightbox-next"
+                  href="#photo-13"
+                  aria-label="Next photo: Meatzilla"
+                  ><svg
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                    focusable="false"
+                  >
+                    <path d="M9 5l7 7-7 7" /></svg
+                ></a>
+                <figcaption id="photo-12-caption">Meatzilla</figcaption>
+              </figure>
+              <figure
+                class="lightbox-slide"
+                id="photo-13"
+                aria-labelledby="photo-13-caption"
+              >
+                <a
+                  class="lightbox-backdrop"
+                  href="#!"
+                  aria-label="Close enlarged photos"
+                ></a>
+                <picture>
+                  <source type="image/webp" srcset="images/meatzilla-2.webp" />
+                  <img
+                    src="images/meatzilla-2.jpg"
+                    width="1200"
+                    height="1600"
+                    alt="Close-up of a Meatzilla pizza with pepperoni, sausage, ham, and basil over melted cheese"
+                    loading="lazy"
+                  />
+                </picture>
+                <a
+                  class="lightbox-arrow lightbox-prev"
+                  href="#photo-12"
+                  aria-label="Previous photo: Meatzilla"
+                  ><svg
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                    focusable="false"
+                  >
+                    <path d="M15 5l-7 7 7 7" /></svg
+                ></a>
+                <a
+                  class="lightbox-arrow lightbox-next"
+                  href="#photo-14"
+                  aria-label="Next photo: Meatzilla (unbaked)"
+                  ><svg
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                    focusable="false"
+                  >
+                    <path d="M9 5l7 7-7 7" /></svg
+                ></a>
+                <figcaption id="photo-13-caption">Meatzilla</figcaption>
+              </figure>
+              <figure
+                class="lightbox-slide"
+                id="photo-14"
+                aria-labelledby="photo-14-caption"
+              >
+                <a
+                  class="lightbox-backdrop"
+                  href="#!"
+                  aria-label="Close enlarged photos"
+                ></a>
+                <picture>
+                  <source type="image/webp" srcset="images/meatzilla-raw.webp" />
+                  <img
+                    src="images/meatzilla-raw.jpg"
+                    width="1200"
+                    height="1600"
+                    alt="An unbaked Meatzilla pizza piled high with sausage, pepperoni, and other meats, with two garlic bulbs behind it"
+                    loading="lazy"
+                  />
+                </picture>
+                <a
+                  class="lightbox-arrow lightbox-prev"
+                  href="#photo-13"
+                  aria-label="Previous photo: Meatzilla"
+                  ><svg
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                    focusable="false"
+                  >
+                    <path d="M15 5l-7 7 7 7" /></svg
+                ></a>
+                <a
+                  class="lightbox-arrow lightbox-next"
+                  href="#photo-15"
+                  aria-label="Next photo: Seasonal Special"
+                  ><svg
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                    focusable="false"
+                  >
+                    <path d="M9 5l7 7-7 7" /></svg
+                ></a>
+                <figcaption id="photo-14-caption">Meatzilla (unbaked)</figcaption>
+              </figure>
+              <figure
+                class="lightbox-slide"
+                id="photo-15"
+                aria-labelledby="photo-15-caption"
               >
                 <a
                   class="lightbox-backdrop"
@@ -1853,8 +2023,8 @@
                 </picture>
                 <a
                   class="lightbox-arrow lightbox-prev"
-                  href="#photo-10"
-                  aria-label="Previous photo: Veggie Delight"
+                  href="#photo-14"
+                  aria-label="Previous photo: Meatzilla (unbaked)"
                   ><svg
                     viewBox="0 0 24 24"
                     aria-hidden="true"
@@ -1862,7 +2032,7 @@
                   >
                     <path d="M15 5l-7 7 7 7" /></svg
                 ></a>
-                <figcaption id="photo-11-caption">Seasonal Special</figcaption>
+                <figcaption id="photo-15-caption">Seasonal Special</figcaption>
               </figure>
             </div>
             <a
@@ -2017,13 +2187,36 @@
               </tr>
               <tr>
                 <th scope="row">
-                  <span class="menu-item">
+                  <a class="menu-photo-link" href="#meatzilla-1">
+                    <picture>
+                      <source
+                        type="image/webp"
+                        srcset="
+                          images/meatzilla-thumb-96.webp   96w,
+                          images/meatzilla-thumb-144.webp 144w
+                        "
+                        sizes="(min-width: 40rem) 4rem, 3rem"
+                      />
+                      <img
+                        class="menu-thumb"
+                        src="images/meatzilla-thumb-96.jpg"
+                        srcset="
+                          images/meatzilla-thumb-96.jpg   96w,
+                          images/meatzilla-thumb-144.jpg 144w
+                        "
+                        sizes="(min-width: 40rem) 4rem, 3rem"
+                        width="48"
+                        height="48"
+                        alt=""
+                        loading="lazy"
+                      />
+                    </picture>
                     <span
-                      class="menu-thumb menu-thumb-empty"
-                      aria-hidden="true"
-                    ></span>
-                    <span>Meatzilla</span>
-                  </span>
+                      >Meatzilla<span class="visually-hidden">
+                        (view photos)</span
+                      ></span
+                    >
+                  </a>
                 </th>
                 <td>$32</td>
                 <td>$39</td>
@@ -2257,6 +2450,138 @@
                   />
                 </picture>
                 <figcaption id="hawaiian-1-caption">Hawaiian</figcaption>
+              </figure>
+            </div>
+            <a
+              class="lightbox-close"
+              href="#!"
+              aria-label="Close enlarged photos"
+              ><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M6 6l12 12M18 6L6 18" /></svg
+            ></a>
+          </div>
+          <div
+            class="lightbox"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Meatzilla photos"
+          >
+            <div class="lightbox-strip">
+              <figure
+                class="lightbox-slide"
+                id="meatzilla-1"
+                aria-labelledby="meatzilla-1-caption"
+              >
+                <a
+                  class="lightbox-backdrop"
+                  href="#!"
+                  aria-label="Close enlarged photos"
+                ></a>
+                <picture>
+                  <source type="image/webp" srcset="images/meatzilla-1.webp" />
+                  <img
+                    src="images/meatzilla-1.jpg"
+                    width="1450"
+                    height="1600"
+                    alt="A whole Meatzilla pizza topped with pepperoni, sausage, ham, and basil leaves, dusted with parmesan"
+                    loading="lazy"
+                  />
+                </picture>
+                <a
+                  class="lightbox-arrow lightbox-next"
+                  href="#meatzilla-2"
+                  aria-label="Next photo"
+                  ><svg
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                    focusable="false"
+                  >
+                    <path d="M9 5l7 7-7 7" /></svg
+                ></a>
+                <figcaption id="meatzilla-1-caption">
+                  Meatzilla (1 of 3)
+                </figcaption>
+              </figure>
+              <figure
+                class="lightbox-slide"
+                id="meatzilla-2"
+                aria-labelledby="meatzilla-2-caption"
+              >
+                <a
+                  class="lightbox-backdrop"
+                  href="#!"
+                  aria-label="Close enlarged photos"
+                ></a>
+                <picture>
+                  <source type="image/webp" srcset="images/meatzilla-2.webp" />
+                  <img
+                    src="images/meatzilla-2.jpg"
+                    width="1200"
+                    height="1600"
+                    alt="Close-up of a Meatzilla pizza with pepperoni, sausage, ham, and basil over melted cheese"
+                    loading="lazy"
+                  />
+                </picture>
+                <a
+                  class="lightbox-arrow lightbox-prev"
+                  href="#meatzilla-1"
+                  aria-label="Previous photo"
+                  ><svg
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                    focusable="false"
+                  >
+                    <path d="M15 5l-7 7 7 7" /></svg
+                ></a>
+                <a
+                  class="lightbox-arrow lightbox-next"
+                  href="#meatzilla-3"
+                  aria-label="Next photo"
+                  ><svg
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                    focusable="false"
+                  >
+                    <path d="M9 5l7 7-7 7" /></svg
+                ></a>
+                <figcaption id="meatzilla-2-caption">
+                  Meatzilla (2 of 3)
+                </figcaption>
+              </figure>
+              <figure
+                class="lightbox-slide"
+                id="meatzilla-3"
+                aria-labelledby="meatzilla-3-caption"
+              >
+                <a
+                  class="lightbox-backdrop"
+                  href="#!"
+                  aria-label="Close enlarged photos"
+                ></a>
+                <picture>
+                  <source type="image/webp" srcset="images/meatzilla-raw.webp" />
+                  <img
+                    src="images/meatzilla-raw.jpg"
+                    width="1200"
+                    height="1600"
+                    alt="An unbaked Meatzilla pizza piled high with sausage, pepperoni, and other meats, with two garlic bulbs behind it"
+                    loading="lazy"
+                  />
+                </picture>
+                <a
+                  class="lightbox-arrow lightbox-prev"
+                  href="#meatzilla-2"
+                  aria-label="Previous photo"
+                  ><svg
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                    focusable="false"
+                  >
+                    <path d="M15 5l-7 7 7 7" /></svg
+                ></a>
+                <figcaption id="meatzilla-3-caption">
+                  Meatzilla (unbaked, 3 of 3)
+                </figcaption>
               </figure>
             </div>
             <a

@@ -8,7 +8,7 @@ The site is content-complete. Everything below is live in `index.html`:
 
 - **Hero** — heading, intro paragraphs, an eight-item checklist (dine in, takeout, etc.), and three pizza photos with name badges plus a hint that they open a gallery. Text sits left and photos right on wide screens; photos drop below the text on phones. The hero photos are served as WebP with JPEG fallback at 240, 400, 800, and full size via `srcset`.
 - **Photo lightboxes** — clicking a hero photo opens a full-screen gallery of all pizza photos; clicking a pizza's thumbnail or name in the menu table opens a gallery of just that pizza. Swipe or use the arrow buttons to move between photos, tap outside or the × to close. Built with `:target`, `:has()`, and CSS scroll-snap; a `@supports not selector(:has(*))` block in the page styles gives browsers without `:has()` a one-photo-at-a-time overlay so the galleries still open there. An inline script at the end of `<body>` adds keyboard support: focus moves into the open lightbox, Tab stays inside it, Escape closes, the arrow keys step between photos, and focus returns to the opening link. Moving between photos replaces the browser history entry rather than adding one, and closing goes back to the page, so one press of Back leaves the gallery.
-- **Pizzas** — price table by size (each pizza has a small square thumbnail next to its name; thumbnail and name together link to that pizza's photo gallery, except Meatzilla, which has an empty placeholder tile until it has a photo), crust and sauce options, extra toppings list, ranch dressing, beer note, and an Ordering line with a tap-to-call number.
+- **Pizzas** — price table by size (each pizza has a small square thumbnail next to its name; thumbnail and name together link to that pizza's photo gallery), crust and sauce options, extra toppings list, ranch dressing, beer note, and an Ordering line with a tap-to-call number.
 - **Hours & Location** — hours table, address, phone, a Get directions button, and an embedded Google Map. An inline script highlights today's row (in Pacific time) and adds "Open now", "Opens today at …", or "Closed for today"; it reads the hours from the JSON-LD block, so there is nothing extra to update when hours change.
 - **About** — short history and a payment note. Facebook and Instagram links with inline SVG icons sit in the nav (icons only) and the footer.
 - **SEO** — title, meta description, canonical link, Open Graph tags with a preview image, `Restaurant` JSON-LD (address, hours, phone, price range, coordinates, social profiles), pizza-emoji favicon set (`favicon.ico`, Apple touch icon, and web manifest icons), `robots.txt`, and `sitemap.xml`.
@@ -16,7 +16,6 @@ The site is content-complete. Everything below is live in `index.html`:
 
 ### Still to fill in
 
-- **Meatzilla photo** — the only pizza in the table without a gallery link. Add a `meatzilla-1.jpg`, a lightbox like the others in `#menu`, `meatzilla-thumb-96`/`-144` thumbnails, and replace the placeholder cell with a `menu-photo-link` like the other rows.
 - **Site URL** — the site lives at `https://bernillosbeachsidepizza.com/`. That URL appears in `robots.txt`, `sitemap.xml`, and the `<head>` (`<link rel="canonical">`, `og:url`, `og:image`, and the JSON-LD `url`/`image`). Update all of them if the domain ever changes.
 
 ## Files
